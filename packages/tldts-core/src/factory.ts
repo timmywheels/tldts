@@ -104,9 +104,9 @@ export function parseImpl(
   if (options.extractHostname === false) {
     result.hostname = url;
   } else if (options.mixedInputs === true) {
-    result.hostname = extractHostname(url, isValidHostname(url));
+    result.hostname = extractHostname(url, isValidHostname(url), options.preserveCase);
   } else {
-    result.hostname = extractHostname(url, false);
+    result.hostname = extractHostname(url, false, options.preserveCase);
   }
 
   if (step === FLAG.HOSTNAME || result.hostname === null) {

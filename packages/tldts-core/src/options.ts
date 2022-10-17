@@ -3,6 +3,7 @@ export interface IOptions {
   allowPrivateDomains: boolean;
   detectIp: boolean;
   extractHostname: boolean;
+  preserveCase: boolean;
   mixedInputs: boolean;
   validHosts: string[] | null;
   validateHostname: boolean;
@@ -13,6 +14,7 @@ function setDefaultsImpl({
   allowPrivateDomains = false,
   detectIp = true,
   extractHostname = true,
+  preserveCase = false,
   mixedInputs = true,
   validHosts = null,
   validateHostname = true,
@@ -22,6 +24,7 @@ function setDefaultsImpl({
     allowPrivateDomains,
     detectIp,
     extractHostname,
+    preserveCase,
     mixedInputs,
     validHosts,
     validateHostname,
