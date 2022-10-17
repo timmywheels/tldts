@@ -1,10 +1,12 @@
 /**
  * @param url - URL we want to extract a hostname from.
  * @param urlIsValidHostname - hint from caller; true if `url` is already a valid hostname.
+ * @param preserveCase - preserve the letter casing of the input
  */
 export default function extractHostname(
   url: string,
   urlIsValidHostname: boolean,
+  preserveCase: boolean,
 ): string | null {
   let start: number = 0;
   let end: number = url.length;
@@ -158,7 +160,7 @@ export default function extractHostname(
   const hostname: string =
     start !== 0 || end !== url.length ? url.slice(start, end) : url;
 
-  if (hasUpper) {
+  if (hasUpper && !preserveCase) {
     return hostname.toLowerCase();
   }
 
